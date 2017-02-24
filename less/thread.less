@@ -318,18 +318,21 @@
     padding-right: 20px;
     background: #ffffff url("@{images-url}bg_sprites.png") 0 -90px repeat-x;
     overflow: hidden;
+    border-bottom: 1px solid rgba(0,0,0,.12);
     textarea {
+      height: @textarea-height;
+      line-height: @textarea-line-height;
+      overflow: hidden;
+
       box-shadow: none;
       -webkit-appearance: none; //remove inner shadow on mobile webkit
-      overflow: auto;
       padding: 10px;
-      height: 54px;
       margin: 0;
       resize: none;
       color: @gray-lighter;
       width: 100%;
       &:focus {
-        color: @gray-dark;
+        color: @gray-light;
       }
     }
     .ds-hidden-text{
@@ -556,6 +559,9 @@
       .clearfix();
     }
     border-bottom: @border-shadow;
+    .ds-post-self {
+      padding: 0;
+    }
   }
   
   li.ds-post {
@@ -596,12 +602,14 @@
   }
 
   .ds-comment-body {
-    padding-left: 60px;
+    padding-left: @comment-body-offset-left;
+    padding-top: @comment-body-offset-top;
     p {
       font-size: @font-size-base;
       line-height: 1.5em;
       margin: .5em 0;
       word-wrap: break-word;
+      color: @comment-body-text-color;
     }
     img {
       max-width:100%;
@@ -697,6 +705,7 @@
       white-space:nowrap;
       text-overflow:ellipsis;
       font-size:@font-size-large;
+      font-weight: @comment-header-title-fontwright;
     }
     .ds-user-card-meta { 
       margin:14px 0 0 62px; 
@@ -713,6 +722,9 @@
   
   .ds-comment-header {
     padding-top: 1px;
+    > a {
+      font-weight: @comment-header-title-fontwright;
+    }
   }
   
   .ds-comment-footer {
@@ -749,7 +761,10 @@
   }
   
   .ds-post-liked .ds-icon-like {
-    background-position: 0 -130px;
+    background: no-repeat url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_thumb_up_black_24px.svg);
+    height: 24px;
+    width: 24px;
+    color: #C09853
   }
 
   .ds-post-liked {
@@ -790,9 +805,9 @@
   }
   
   .ds-icon-like {
-    width: 14px;
-    height: 13px;
-    background-position: 0 -117px;
+    background: no-repeat url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_thumb_up_black_24px.svg);
+    height: 24px;
+    width: 24px;
   }
   
   .ds-icon-share {

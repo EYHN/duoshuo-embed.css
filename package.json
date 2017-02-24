@@ -5,14 +5,14 @@
   "private" : true,
   "scripts": {
     "serve": "serve --no-less .",
-    "watch": "rewatch less/*.less -c 'npm run build-less'",
-    "build-less": "node_modules/.bin/lessc -x less/embed.less dist/embed.default.css",
+    "watch": "rewatch less/*.less -c \"npm run build-less\"",
+    "build-less": "node_modules/.bin/lessc -x less/embed.less dist/embed.default.css -rp=dist/ --source-map",
     "dev": "npm run watch & npm run serve",
     "start": "npm run dev"
   },
   "devDependencies": {
-    "serve": "~1.4.0",
-    "rewatch": "~0.2.2",
-    "less": "~1.7.3"
+    "serve": "^1.4.0",
+    "rewatch": "^0.2.2",
+    "less": "^1.7.3"
   }
 }
